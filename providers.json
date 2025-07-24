@@ -1,0 +1,32 @@
+[
+ {
+    "provider": "pragmatic",
+    "provider_name": "Pragmatic Play",
+    "providerLogos": {
+      "image_black": "https://cdn.example.com/logos/pragmatic_black.png",
+      "image_white": "https://cdn.example.com/logos/pragmatic_white.png",
+      "image_colored": "https://cdn.example.com/logos/pragmatic_colored.png"
+    },
+    "createdAt": "2025-07-10T09:00:00Z"
+  },
+  {
+    "provider": "evolution",
+    "provider_name": "Evolution Gaming",
+    "providerLogos": {
+      "image_black": "https://cdn.example.com/logos/evolution_black.png",
+      "image_white": "https://cdn.example.com/logos/evolution_white.png",
+      "image_colored": "https://cdn.example.com/logos/evolution_colored.png"
+    },
+    "createdAt": "2025-01-11T10:30:00Z"
+  },
+  {
+    "provider": "netent",
+    "provider_name": "NetEnt",
+    "providerLogos": {
+      "image_black": "https://cdn.example.com/logos/netent_black.png",
+      "image_white": "https://cdn.example.com/logos/netent_white.png",
+      "image_colored": "https://cdn.example.com/logos/netent_colored.png"
+    },
+    "createdAt": "2024-07-12T14:45:00Z"
+  }
+]

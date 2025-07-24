@@ -1,0 +1,105 @@
+{
+  "family": "truebet-app",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "${EXECUTION_ROLE_ARN}",
+  "containerDefinitions": [
+    {
+      "name": "truebet-container",
+      "image": "truebet-app:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "PORT",
+          "value": "3000"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "API_PASSWORD",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/API_PASSWORD"
+        },
+        {
+          "name": "API_SALT",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/API_SALT"
+        },
+        {
+          "name": "API_USERNAME",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/API_USERNAME"
+        },
+        {
+          "name": "JWT_SECRET",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/JWT_SECRET"
+        },
+        {
+          "name": "CLIENT_USER_NAME",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/CLIENT_USER_NAME"
+        },
+        {
+          "name": "CLIENT_PASSWORD",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/CLIENT_PASSWORD"
+        },
+        {
+          "name": "CMS_TOKEN_BASE_URL",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/CMS_TOKEN_BASE_URL"
+        },
+        {
+          "name": "CMS_USER_BASE_URL",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/CMS_USER_BASE_URL"
+        },
+        {
+          "name": "MONGO_URI",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/MONGO_URI"
+        },
+        {
+          "name": "PROVIDER_API_URL",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/PROVIDER_API_URL"
+        },
+        {
+          "name": "SOCKET_CORS_ORIGINS",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/SOCKET_CORS_ORIGINS"
+        },
+        {
+          "name": "CORS_ORIGINS",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/CORS_ORIGINS"
+        },
+        {
+          "name": "DECRYPTION_PRIVATE_KEY",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/DECRYPTION_PRIVATE_KEY"
+        },
+        {
+          "name": "CPYPRAGMATIC_API_ENDPONIT",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/CPYPRAGMATIC_API_ENDPONIT"
+        },
+        {
+          "name": "CPYPRAGMATIC_API_TOKEN",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/CPYPRAGMATIC_API_TOKEN"
+        },
+        {
+          "name": "CPYPRAGMATIC_SECRET_KEY",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/truebet-app/CPYPRAGMATIC_SECRET_KEY"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/truebet-app",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}

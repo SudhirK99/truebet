@@ -1,0 +1,35 @@
+[
+  {
+    "userId": "user1",
+    "userName": "Alice",
+    "providerId": "pragmatic",
+    "providerName": "Pragmatic Play",
+    "stake": 100,
+    "payout": 150,
+    "gameId": "game1",
+    "gameName": "Sweet Bonanza",
+    "createdAt": "2025-07-14T10:00:00Z"
+  },
+  {
+    "userId": "user1",
+    "userName": "Alice",
+    "providerId": "evolution",
+    "providerName": "Evolution Gaming",
+    "stake": 200,
+    "payout": 100,
+    "gameId": "game2",
+    "gameName": "Lightning Roulette",
+    "createdAt": "2025-07-14T12:00:00Z"
+  },
+  {
+    "userId": "user2",
+    "userName": "Bob",
+    "providerId": "pragmatic",
+    "providerName": "Pragmatic Play",
+    "stake": 300,
+    "payout": 250,
+    "gameId": "game3",
+    "gameName": "Gates of Olympus",
+    "createdAt": "2025-07-14T14:00:00Z"
+  } 
+]
